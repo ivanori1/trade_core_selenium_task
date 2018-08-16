@@ -4,7 +4,7 @@ This project is written in Pycharm 2018.2 and to make easier to write .feature f
 
 Suggested tools:
 * Python version: Both 2.7.14 and 3.x.x are acceptable. (3.6 used)
-* Framework: Behave (BDD) used  
+* Framework: Behave (BDD) used with combination with Page Object Model (POM)
 * Webdriver: ChromeWebDriver used 
 
 Requirements: 
