@@ -1,12 +1,11 @@
-from selenium import webdriver
+from features.base.browser import Browser
+from features.pages.create_account_page import CreateAccount
 
 
 def before_all(context):
-    context.driver = webdriver.Chrome()
-    context.driver.set_page_load_timeout(10)
-    context.driver.implicitly_wait(15)
-    context.driver.maximize_window()
+    context.browser = Browser()
+    context.create_account = CreateAccount()
 
 
 def after_all(context):
-    context.driver.quit()
+    context.browser.close()

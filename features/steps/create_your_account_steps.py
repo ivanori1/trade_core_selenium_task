@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 
 @given('Go to Tradecore')
 def step_impl(context):
-    context.driver.get("https://demo-biq.dev.tradecore.io/#/")
-
+    context.create_account.navigate("https://demo-biq.dev.tradecore.io/#/")
+    assert context.create_account.get_page_title() == "TradeCore - Step 1 | Registration"
 
 @when('Click Next')
 def step_impl(context):
