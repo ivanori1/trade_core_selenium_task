@@ -23,7 +23,7 @@ Webdriver:
 The ChromeDriver controls the browser using Chrome's automation proxy framework.
 The server expects you to have Chrome installed in the default location for each system:
 
-Download ChromeDriver on this [link] (https://chromedriver.storage.googleapis.com/index.html) (version I am currently using is 2.41
+Download ChromeDriver on this [link](https://chromedriver.storage.googleapis.com/index.html) (version I am currently using is 2.41
 
 Set path of ChromeWebDirver:
 ```
@@ -34,4 +34,4 @@ Mac            /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 Windows XP     %HOMEPATH%\Local Settings\Application Data\Google\Chrome\Application\chrome.exe
 Windows Vista  C:\Users\%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe
 ```
-more detail on [ChromeDriver wiki] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+more detail on [ChromeDriver wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
