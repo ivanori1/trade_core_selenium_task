@@ -1,18 +1,17 @@
-from behave import given, when, then, step
-from selenium import webdriver
+from behave import given, when, then
+from selenium.webdriver.common.by import By
 
 
-driver = webdriver.Chrome
-
-
-@step('Go to Tradecore')
+@given('Go to Tradecore')
 def step_impl(context):
     context.driver.get("https://demo-biq.dev.tradecore.io/#/")
 
-@step('Click Next')
-def step_impl(context):
-    context.driver.find_element_by_id("button-step").click()
 
-@step('This field is required error')
+@when('Click Next')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector("[ng-message='required']").is_displayed()
+    context.driver.find_element(By.ID, "button-step").click()
+
+
+@then('This field is required error')
+def step_impl(context):
+    assert context.driver.find_element(By.CSS_SELECTOR, "[ng-message='required']").is_displayed()
