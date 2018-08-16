@@ -19,3 +19,13 @@ and selenium
 pip install selenium
 ```
 
+Set path of ChromeWebDirver:
+```
+OS          Expected Location of Chrome
+-------------------------------------
+Linux          /usr/bin/google-chrome
+Mac            /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+Windows XP     %HOMEPATH%\Local Settings\Application Data\Google\Chrome\Application\chrome.exe
+Windows Vista  C:\Users\%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe
+```
+
