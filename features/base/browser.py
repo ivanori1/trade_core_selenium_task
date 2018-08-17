@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 
 
 class Browser(object):
@@ -52,3 +53,21 @@ class Browser(object):
     def is_visible_element(self, locator, locator_type="css"):
         element_visible = self.get_element(locator, locator_type).is_displayed()
         return element_visible
+
+    def select_from_dropdown(self, data, locator, locator_type="css"):
+        try:
+            select_dropdown = Select(self.get_element(locator, locator_type))
+            select_dropdown.select_by_visible_text(data)
+            print("Selected element is: " + data)
+
+        except:
+
+            print("element not found " + locator)
+
+    def text_of_element(self, inner_text, locator, locator_type="css"):
+        element_text = self.get_element(locator, locator_type).text
+        if element_text == inner_text:
+            return True
+        else:
+            print("Compared text do not match")
+            return False

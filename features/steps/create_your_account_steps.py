@@ -15,3 +15,13 @@ def step_impl(context):
 @then('This field is required error')
 def step_impl(context):
     assert context.create_account.verified_required_field_visible()
+
+
+@when('Choose from Country dropdown')
+def step_impl(context):
+    context.create_account.select_country()
+
+
+@then('Placeholder will change to selected country')
+def step_impl(context):
+    context.create_account.verified_country_is_selected()
