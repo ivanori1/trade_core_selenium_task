@@ -4,5 +4,3 @@ Feature: Attempt to create account with invalid credentials
     Given Go to Tradecore
     When Click Next
     Then This field is required error
-
-
