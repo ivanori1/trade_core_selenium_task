@@ -2,7 +2,7 @@ from features.base.browser import Browser
 
 
 class CreateAccount(Browser):
-    # create account  Locators
+    # create account page locators  Locators
     _next_button ="#button-step"
     _required_field = "[ng-message='required']"
 

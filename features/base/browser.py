@@ -19,9 +19,6 @@ class Browser(object):
     def get_page_title(self):
         return self.driver.title
 
-    def click_element(self, *locator):
-        self.driver.find_element(*locator).click()
-
     def get_by_type(context, locator_type):
         if locator_type == "css":
             return By.CSS_SELECTOR
@@ -36,7 +33,7 @@ class Browser(object):
             by_type = context.get_by_type(locator_type)
             element = context.driver.find_element(by_type, locator)
         except:
-            print("element not found " + locator.upper())
+            print("element not found " + locator)
         return element
 
     def click_on_element(context, locator, locator_type="css"):
@@ -44,7 +41,7 @@ class Browser(object):
             element = context.get_element(locator, locator_type)
             element.click()
         except:
-            print("click action not performed")
+            print("click action on element" + locator + " not executed")
 
     def wait_for_element_to_be_clickable(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
