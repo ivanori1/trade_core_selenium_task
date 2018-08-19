@@ -35,7 +35,7 @@ For Linux:
 
 For Windows:
 
-Paste the chromedriver.exe file in "C:\Python27\Scripts" Folder.
+Paste the chromedriver.exe file in "C:\Python\Scripts" Folder.
 
 more detail on [ChromeDriver wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
