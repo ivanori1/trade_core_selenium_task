@@ -35,3 +35,8 @@ Windows XP     %HOMEPATH%\Local Settings\Application Data\Google\Chrome\Applicat
 Windows Vista  C:\Users\%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe
 ```
 more detail on [ChromeDriver wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+
+To run test case open terminal in project root directory and type:
+```
+behave
+```
