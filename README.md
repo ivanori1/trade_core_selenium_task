@@ -48,11 +48,12 @@ Structure of the prject is:
    ├── steps
    |   └── crate_your_account_steps.py
    ├── pages
-   |   └── crate_your_account_page_.py
+   |   └── crate_your_account_page.py
    └── base
-        └── crate_your_account_page_.py
+       └── browser.py
 ```
-
+Here's a brief explanation of the files:
+(empty)
 
 To run test case open terminal in project root directory and type:
 ```
