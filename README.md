@@ -39,6 +39,21 @@ Paste the chromedriver.exe file in "C:\Python\Scripts" Folder.
 
 more detail on [ChromeDriver wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
+Structure of the prject is:
+
+```
+.
+└── features
+   ├── create_your_accoutn.feature
+   ├── steps
+   |   └── crate_your_account_steps.py
+   ├── pages
+   |   └── crate_your_account_page_.py
+   └── base
+        └── crate_your_account_page_.py
+```
+
+
 To run test case open terminal in project root directory and type:
 ```
 behave
