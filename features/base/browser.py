@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 
 
 class Browser(object):
@@ -44,6 +45,14 @@ class Browser(object):
         except:
             print("click action on element" + locator + " not executed")
 
+    def send_keys_to_element(self, data, locator, locator_type="css"):
+        try:
+            element = self.get_element(locator, locator_type)
+            element.clear()
+            element.send_keys(data)
+        except:
+            print("send keys not performed on: " + locator)
+
     def wait_for_element_to_be_clickable(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
         wait = WebDriverWait(self.driver, 20)
@@ -69,5 +78,5 @@ class Browser(object):
         if element_text == inner_text:
             return True
         else:
-            print("Compared text do not match")
+            print("Compared text " + element_text + " and " + inner_text + " do not match")
             return False
