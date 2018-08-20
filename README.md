@@ -26,12 +26,36 @@ The server expects you to have Chrome installed in the default location for each
 Download ChromeDriver on this [link](https://chromedriver.storage.googleapis.com/index.html) (version I am currently using is 2.41)
 
 Set path of ChromeWebDirver:
-```
-OS          Expected Location of Chrome
--------------------------------------
-Linux          /usr/bin/google-chrome
-Mac            /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
-Windows XP     %HOMEPATH%\Local Settings\Application Data\Google\Chrome\Application\chrome.exe
-Windows Vista  C:\Users\%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe
-```
+
+For Linux:
+
+1) Move the file to /usr/bin directory sudo mv chromedriver /usr/bin
+
+2) Goto /usr/bin directory and you would need to run something like "chmod a+x chromedriver" to mark it executable. 
+
+For Windows:
+
+Paste the chromedriver.exe file in "C:\Python\Scripts" Folder.
+
 more detail on [ChromeDriver wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+
+Structure of the prject is:
+
+```
+.
+└── features
+   ├── create_your_accoutn.feature
+   ├── steps
+   |   └── crate_your_account_steps.py
+   ├── pages
+   |   └── crate_your_account_page.py
+   └── base
+       └── browser.py
+```
+Here's a brief explanation of the files:
+(empty)
+
+To run test case open terminal in project root directory and type:
+```
+behave
+```
