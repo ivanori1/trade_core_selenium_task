@@ -3,9 +3,9 @@ from features.base.browser import Browser
 
 class CreateAccount(Browser):
     # create account page locators  Locators
-    _first_name = "[name='first_name']"
+    _first_name = ".posr [name='first_name']"
     _last_name = ".posr [name='last_name']"
-    _email = "[name='email']"
+    _email = ".posr [name='email']"
     _password = ".posr [name='password']"
     _phone = ".posr [name='telephone']"
     _date_of_birth = ".posr [name='date_of_birth']"
@@ -15,7 +15,8 @@ class CreateAccount(Browser):
     _address = ".posr [name='addr_street']"
     _city = ".posr [name='addr_city']"
     _next_button = "#button-step"
-    _error_field = " .help-block"
+    _error_field = "[ng-message]"
+    _other_error_field = "[ng-message][ng-if]"
 
     def type_first_name(self, data="Ivan"):
         self.send_keys_to_element(data, self._first_name)
@@ -26,13 +27,13 @@ class CreateAccount(Browser):
     def type_email(self, data="ivan.coric@tradecore.com"):
         self.send_keys_to_element(data, self._email)
 
-    def type_password(self, data="12345678"):
+    def type_password(self, data="Ivanori1"):
         self.send_keys_to_element(data, self._password)
 
     def select_phone_country(self):
         pass
 
-    def type_phone(self, data="616468058"):
+    def type_phone(self, data="381616468058"):
         self.send_keys_to_element(data, self._phone)
 
     def type_date_of_birth(self, data="20/07/1991"):
@@ -60,4 +61,8 @@ class CreateAccount(Browser):
 
     def verified_this_field__is_required_visible(self, inner_text):
         result = self.text_of_element(inner_text, self._error_field)
+        return result
+
+    def verified_other_error_message(self, inner_text):
+        result = self.text_of_element(inner_text, inner_text)
         return result
