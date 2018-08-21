@@ -15,3 +15,11 @@ Feature: Attempt to create account with invalid credentials
     Given Fill all placeholders
     When Add invalid email credentials "ivan.coric"
     Then Error appears: "THIS FIELD IS NOT VALID"
+
+  Scenario: 4. Select country
+    When Choose from country dropdown "Armenia"
+    Then Placeholder will change to selected country "Armenia"
+
+  Scenario: 5. Change dial code by typing number
+    When Type number "374" to phone
+    Then Selected flag is "Armenia"
