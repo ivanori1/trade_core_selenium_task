@@ -49,3 +49,13 @@ def step_impl(context, email):
 @when('Add invalid password credentials "{password}"')
 def step_impl(context, password):
     context.create_account.type_password(password)
+
+
+@when('Type number "{tel_num}" to phone')
+def step_impl(context, tel_num):
+    context.create_account.type_phone(tel_num)
+
+
+@then('Selected flag is "{country}')
+def step_impl(context, country):
+    context.create_account.verified_selected_flag(country)
