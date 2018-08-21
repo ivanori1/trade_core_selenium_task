@@ -54,15 +54,11 @@ Structure of the prject is:
        └── browser.py
 ```
 Here's a brief explanation of the files:
+* **environment.py**: Define code to run before and after certain events during testing. (starts WebDriver)
 * **create_your_account.feature**: Written test for create account feature, with scenarios an steps.
-* **environment.py**: Define code to run before and after certain events during testing.
-* **base/browser.py**: Used to move out WebDriver functionalityes from environment.py and to wrap all WebDriver methods.
-* **pages/crate_your_account_page.py**: To move all step code to one method in pages files, so speps will be cleaner code with only one action/assertation
 * **steps/crate_your_account_steps.py**: This is where Behave will initially look for the code for tests.
-
-
-environment.py starts webDriver> .feature contains tests> Name of the test step is related to decorator in steps > method step_impl contains only one line of code and navigate to steps > steps.py use locator in file and webDriver methods for implementing steps> browser.py contains all webDriver actions to make code reduced and easy to maintain.
-
+* **pages/crate_your_account_page.py**: Use locators in file and webDriver methods from browser.py for implementing steps 
+* **base/browser.py**: Contains all webDriver actions wrapped to unique methods to make code reduced and easy to maintain. 
 
 To run test case open terminal in project root directory and type:
 ```
