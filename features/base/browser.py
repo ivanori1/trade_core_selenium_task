@@ -80,3 +80,12 @@ class Browser(object):
         else:
             print("Compared text " + element_text + " and " + inner_text + " do not match")
             return False
+
+    def attribute_value_of_element(self, attribute_name, locator, locator_type="css"):
+        try:
+            element = self.get_element(locator, locator_type)
+            element_attribute = element.get_attribute(attribute_name)
+            print("Value of attribute " + attribute_name + " from locator" + locator)
+            return element_attribute
+        except:
+            print("Attribute " + attribute_name + " or element with locator " + locator + "not found")
