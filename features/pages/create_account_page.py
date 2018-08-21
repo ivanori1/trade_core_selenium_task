@@ -8,6 +8,7 @@ class CreateAccount(Browser):
     _email = ".posr [name='email']"
     _password = ".posr [name='password']"
     _phone = ".posr [name='telephone']"
+    _selected_flag = ".selected-flag"
     _date_of_birth = ".posr [name='date_of_birth']"
     _country = "#form-addr_country"
     _chosen_country = ".chosen-single"
@@ -66,3 +67,8 @@ class CreateAccount(Browser):
     def verified_other_error_message(self, inner_text):
         result = self.text_of_element(inner_text, inner_text)
         return result
+
+    def verified_selected_flag(self, country):
+        result = self.attribute_value_of_element("title", self._selected_flag)
+        if country in result:
+            return True
