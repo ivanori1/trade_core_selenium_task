@@ -45,6 +45,7 @@ Structure of the prject is:
 .
 └── features
    ├── create_your_accoutn.feature
+   ├── environment.py
    ├── steps
    |   └── crate_your_account_steps.py
    ├── pages
