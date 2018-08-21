@@ -55,8 +55,8 @@ Structure of the prject is:
 ```
 Here's a brief explanation of the files:
 * **environment.py**: Define code to run before and after certain events during testing. (starts WebDriver)
-* **create_your_account.feature**: Written test for create account feature, with scenarios an steps.
-* **steps/crate_your_account_steps.py**: This is where Behave will initially look for the code for tests.
+* **create_your_account.feature**: Written test for create account and login, with scenarios an steps.
+* **steps/crate_your_account_steps.py**: This is where Behave will initially look for the code for tests via decorators.
 * **pages/crate_your_account_page.py**: Use locators in file and webDriver methods from browser.py for implementing steps 
 * **base/browser.py**: Contains all webDriver actions wrapped to unique methods to make code reduced and easy to maintain. 
 
