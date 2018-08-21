@@ -52,6 +52,12 @@ class Browser(object):
         except:
             print("send keys not performed on: " + locator)
 
+    def wait_for_element_to_be_visible(self, locator, locator_type="css"):
+        by_type = self.get_by_type(locator_type)
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.presence_of_element_located((by_type, locator)))
+        return element
+
     def wait_for_element_to_be_clickable(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
         wait = WebDriverWait(self.driver, 20)
