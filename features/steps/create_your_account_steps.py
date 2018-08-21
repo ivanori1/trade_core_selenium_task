@@ -59,3 +59,8 @@ def step_impl(context, tel_num):
 @then('Selected flag is "{country}')
 def step_impl(context, country):
     context.create_account.verified_selected_flag(country)
+
+
+@then('Questionnaire page appears')
+def step_impl(context):
+    context.questionnaire.verify_read_terms_is_visible()
