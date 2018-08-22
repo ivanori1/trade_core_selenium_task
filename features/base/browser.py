@@ -68,11 +68,11 @@ class Browser(object):
         element_visible = self.get_element(locator, locator_type).is_displayed()
         return element_visible
 
-    def select_from_dropdown(self, data, locator, locator_type="css"):
+    def select_from_dropdown(self, visible_text, locator, locator_type="css"):
         try:
             select_dropdown = Select(self.get_element(locator, locator_type))
-            select_dropdown.select_by_visible_text(data)
-            print("Selected element is: " + data)
+            select_dropdown.select_by_visible_text(visible_text)
+            print("Selected element is: " + visible_text)
 
         except:
 
