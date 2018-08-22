@@ -17,6 +17,9 @@ class Browser(object):
     def navigate(self, address):
         self.driver.get(address)
 
+    def get_page_url(self):
+        return self.driver.current_url
+
     def get_page_title(self):
         return self.driver.title
 
@@ -94,3 +97,7 @@ class Browser(object):
             return element_attribute
         except:
             print("Attribute " + attribute_name + " or element with locator " + locator + "not found")
+
+    def is_selected_element(self, locator, locator_type="xpath"):
+        element_is_selected = self.get_element(locator, locator_type).is_selected()
+        return element_is_selected
