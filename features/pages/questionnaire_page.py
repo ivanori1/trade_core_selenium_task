@@ -8,6 +8,7 @@ class Questionnaire(Browser):
     _select_shares = "//select[@id='form-shares']"
     _select_forex = "//select[@id='form-forex']"
     _select_cdfs = "//select[@id='form-cfds']"
+    _select_spread_betting = "//select[@id='form-spread_betting']"
     _select_relevant_experience = "//select[@id='form-relevant_experience']"
     _select_trading_accounts = "//select[@id='form-trading_accounts']"
     _select_currency = "//select[@id='form-currency']"
@@ -15,6 +16,7 @@ class Questionnaire(Browser):
     _select_employment_status = "//select[@id='form-employment_status']"
     _select_liquid_savings = "//select[@id='form-liquid_savings']"
     _visible_answer = "/following-sibling::div[1]"  # use selected_ + _visible_answer to combine for element locator
+    _logout_button = "ui-sref='logout'"
 
     def verify_read_terms_is_visible(self):
         self.wait_for_element_to_be_clickable(self._read_terms)
@@ -49,8 +51,18 @@ class Questionnaire(Browser):
         result = self.text_of_element(answer, self._select_cdfs + self._visible_answer, "xpath")
         return result
 
+    def select_from_spread_betting(self, answer):
+        self.driver.execute_script(
+            "document.getElementById('form-spread_betting').setAttribute('style', 'inline-block')")
+        self.select_from_dropdown(answer, self._select_spread_betting, "xpath")
+
+    def verify_answer_selected_from_spread_betting(self, answer):
+        result = self.text_of_element(answer, self._select_spread_betting + self._visible_answer, "xpath")
+        return result
+
     def select_from_relevant_experience(self, answer):
-        self.driver.execute_script("document.getElementById('form-relevant_experience').setAttribute('style', 'inline-block')")
+        self.driver.execute_script(
+            "document.getElementById('form-relevant_experience').setAttribute('style', 'inline-block')")
 
         self.select_from_dropdown(answer, self._select_relevant_experience, "xpath")
 
@@ -59,7 +71,8 @@ class Questionnaire(Browser):
         return result
 
     def select_from_relevant_trading_accounts(self, answer):
-        self.driver.execute_script("document.getElementById('form-trading_accounts').setAttribute('style', 'inline-block')")
+        self.driver.execute_script(
+            "document.getElementById('form-trading_accounts').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_trading_accounts, "xpath")
 
     def verify_answer_selected_trading_accounts(self, answer):
@@ -67,6 +80,7 @@ class Questionnaire(Browser):
         return result
 
     def select_currency(self, answer):
+        self.wait_for_element_to_be_visible("[for='form-currency']")
         self.driver.execute_script(
             "document.getElementById('form-currency').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_currency, "xpath")
@@ -103,9 +117,9 @@ class Questionnaire(Browser):
         return result
 
     def check_read_terms(self):
-        if not self.is_selected_element(self._read_terms):
-            self.click_on_element(self._read_terms)
+        self.click_on_element(self._read_terms)
 
-    def verify_portal_page_is_open(self):
-        result = self.get_page_url()
+    def verify_portal_page_is_open(self, title_account="TradeCore - Account"):
+        self.wait_for_title(title_account)
+        result = self.get_page_title() == title_account
         return result
