@@ -1,3 +1,5 @@
+import random
+import string
 from features.base.browser import Browser
 
 
@@ -16,8 +18,10 @@ class CreateAccount(Browser):
     _address = ".posr [name='addr_street']"
     _city = ".posr [name='addr_city']"
     _next_button = "#button-step"
-    _error_field = "[ng-message]"
+    _error_field = ".help-block"
     _other_error_field = "[ng-message][ng-if]"
+
+    random_string = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(4)])
 
     def type_first_name(self, data="Ivan"):
         self.send_keys_to_element(data, self._first_name)
@@ -25,14 +29,11 @@ class CreateAccount(Browser):
     def type_last_name(self, data="Coric"):
         self.send_keys_to_element(data, self._last_name)
 
-    def type_email(self, data="ivan.coric@tradecore.com"):
+    def type_email(self, data=random_string + "@tradecore.com"):
         self.send_keys_to_element(data, self._email)
 
     def type_password(self, data="Ivanori1"):
         self.send_keys_to_element(data, self._password)
-
-    def select_phone_country(self):
-        pass
 
     def type_phone(self, data="381616468058"):
         self.send_keys_to_element(data, self._phone)
@@ -43,10 +44,6 @@ class CreateAccount(Browser):
     def select_country(self, data):
         self.driver.execute_script("document.getElementById('form-addr_country').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(data, self._country)
-
-    def verified_country_is_selected(self):
-        result = self.is_selected_element(self._country,"css")
-        return result
 
     def type_postcode(self, data="11000"):
         self.send_keys_to_element(data, self._postcode)
@@ -66,7 +63,7 @@ class CreateAccount(Browser):
         return result
 
     def verified_other_error_message(self, inner_text):
-        result = self.text_of_element(inner_text, inner_text)
+        result = self.text_of_element(inner_text, self._error_field)
         return result
 
     def verified_selected_flag(self, country):
