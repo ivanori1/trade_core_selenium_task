@@ -57,7 +57,7 @@ class Browser(object):
 
     def wait_for_element_to_be_visible(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 30)
         element = wait.until(EC.presence_of_element_located((by_type, locator)))
         return element
 
@@ -65,6 +65,11 @@ class Browser(object):
         by_type = self.get_by_type(locator_type)
         wait = WebDriverWait(self.driver, 20)
         element = wait.until(EC.element_to_be_clickable((by_type, locator)))
+        return element
+
+    def wait_for_title(self, title):
+        wait = WebDriverWait(self.driver, 20)
+        element = wait.until(EC.title_is(title))
         return element
 
     def is_visible_element(self, locator, locator_type="css"):
