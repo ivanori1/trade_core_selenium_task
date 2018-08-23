@@ -11,14 +11,11 @@ Feature: Attempt to create account
     And Click Next
     Then Error appears: "PASSWORD MUST BE 6 TO 15 CHARACTERS LONG, CASE SENSITIVE AND CONTAIN BOTH ENGLISH LETTERS AND NUMBERS ONLY"
 
-  Scenario: Wrong email format
+  Scenario: Used email
     Given Fill all placeholders
-    When Add invalid email credentials "ivan.coric"
-    Then Error appears: "THIS FIELD IS NOT VALID"
-
-  Scenario: Select country
-    When Choose from country dropdown "Armenia"
-    Then Placeholder will change to selected country "Armenia"
+    When Add used email credentials "ivan.coric@tradecore.com"
+    And Click Next
+    Then Error appears: "THIS EMAIL IS ALREADY TAKEN"
 
   Scenario: Change dial code by typing number
     When Type number "374" to phone
