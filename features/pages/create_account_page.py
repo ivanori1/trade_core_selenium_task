@@ -21,7 +21,7 @@ class CreateAccount(Browser):
     _error_field = ".help-block"
     _other_error_field = "[ng-message][ng-if]"
 
-    random_string = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(4)])
+    random_string = ''.join([random.choice(string.ascii_letters.lower() + string.digits) for n in range(8)])
 
     def type_first_name(self, data="Ivan"):
         self.send_keys_to_element(data, self._first_name)
