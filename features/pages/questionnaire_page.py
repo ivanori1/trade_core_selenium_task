@@ -26,6 +26,7 @@ class Questionnaire(Browser):
         self.click_on_element(self._finish_button)
 
     def select_from_shares(self, answer):
+        self.driver.execute_script("document.getElementById('form-shares').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_shares, "xpath")
 
     def verify_answer_selected_from_shares(self, answer):
@@ -33,6 +34,7 @@ class Questionnaire(Browser):
         return result
 
     def select_from_forex(self, answer):
+        self.driver.execute_script("document.getElementById('form-forex').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_forex, "xpath")
 
     def verify_answer_selected_from_forex(self, answer):
@@ -40,6 +42,7 @@ class Questionnaire(Browser):
         return result
 
     def select_from_cdfs(self, answer):
+        self.driver.execute_script("document.getElementById('form-cfds').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_cdfs, "xpath")
 
     def verify_answer_selected_from_cdfs(self, answer):
@@ -47,6 +50,8 @@ class Questionnaire(Browser):
         return result
 
     def select_from_relevant_experience(self, answer):
+        self.driver.execute_script("document.getElementById('form-relevant_experience').setAttribute('style', 'inline-block')")
+
         self.select_from_dropdown(answer, self._select_relevant_experience, "xpath")
 
     def verify_answer_selected_relevant_experience(self, answer):
@@ -54,6 +59,7 @@ class Questionnaire(Browser):
         return result
 
     def select_from_relevant_trading_accounts(self, answer):
+        self.driver.execute_script("document.getElementById('form-trading_accounts').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_trading_accounts, "xpath")
 
     def verify_answer_selected_trading_accounts(self, answer):
@@ -61,6 +67,8 @@ class Questionnaire(Browser):
         return result
 
     def select_currency(self, answer):
+        self.driver.execute_script(
+            "document.getElementById('form-currency').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_currency, "xpath")
 
     def verify_answer_selected_currency(self, answer):
@@ -68,6 +76,8 @@ class Questionnaire(Browser):
         return result
 
     def select_annual_income(self, answer):
+        self.driver.execute_script(
+            "document.getElementById('form-approx_annual_income').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_annual_income, "xpath")
 
     def verify_answer_selected_annual_income(self, answer):
@@ -75,6 +85,8 @@ class Questionnaire(Browser):
         return result
 
     def select_employment_status(self, answer):
+        self.driver.execute_script(
+            "document.getElementById('form-employment_status').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_employment_status, "xpath")
 
     def verify_answer_selected_employment_status(self, answer):
@@ -82,6 +94,8 @@ class Questionnaire(Browser):
         return result
 
     def select_savings(self, answer):
+        self.driver.execute_script(
+            "document.getElementById('form-liquid_savings').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(answer, self._select_liquid_savings, "xpath")
 
     def verify_answer_selected_savings(self, answer):

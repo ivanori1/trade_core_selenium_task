@@ -41,10 +41,11 @@ class CreateAccount(Browser):
         self.send_keys_to_element(data, self._date_of_birth)
 
     def select_country(self, data):
+        self.driver.execute_script("document.getElementById('form-addr_country').setAttribute('style', 'inline-block')")
         self.select_from_dropdown(data, self._country)
 
-    def verified_country_is_selected(self, data):
-        result = self.text_of_element(data, self._chosen_country)
+    def verified_country_is_selected(self):
+        result = self.is_selected_element(self._country,"css")
         return result
 
     def type_postcode(self, data="11000"):
