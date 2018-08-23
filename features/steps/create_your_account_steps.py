@@ -18,16 +18,6 @@ def step_impl(context, error_message):
         error_message) or context.create_account.verified_other_error_message(error_message)
 
 
-@when('Choose from country dropdown "{country}"')
-def step_impl(context, country):
-    context.create_account.select_country(country)
-
-
-@then('Placeholder will change to selected country "{country}"')
-def step_impl(context, country):
-    context.create_account.verified_country_is_selected(country)
-
-
 @step('Fill all placeholders')
 def step_impl(context):
     context.create_account.type_first_name()
@@ -41,7 +31,7 @@ def step_impl(context):
     context.create_account.type_city()
 
 
-@when('Add invalid email credentials "{email}"')
+@when('Add used email credentials "{email}"')
 def step_impl(context, email):
     context.create_account.type_email(email)
 
