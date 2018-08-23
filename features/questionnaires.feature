@@ -31,11 +31,40 @@ Feature: Fill questionnaires and finish
       | Sometimes  |
       | No         |
 
+  Scenario Outline: Select <answers> for Spread Betting
+    When Select one of "<answers>" from Spread Betting
+    Then One of the Spread Betting dropdown "<answers>" will be visible
+
+    Examples:
+      | answers    |
+      | Frequently |
+      | Sometimes  |
+      | No         |
+
+
+  Scenario Outline: Select <answers> for Relevant Experience
+    When Select one of "<answers>" from Relevant Experience
+    Then One of the Relevant Experience dropdown "<answers>" will be visible
+
+    Examples:
+      | answers                                           |
+      | Attended a relevant training course               |
+      | Had experience of working in the financial sector |
+      | No other relevant experience                      |
+
   Scenario: Select trading platform
     When Select "MT5" from Trading Platform
     Then Selected "MT5" will be visible
 
+  Scenario Outline: Select <answers> for Currency
+    When Select one of "<answers>" from Currency
+    Then One of the Currency dropdown "<answers>" will be visible
 
+    Examples:
+      | answers |
+      | USD     |
+      | EUR     |
+      | GBP     |
 
   Scenario Outline:  Select <answers> for Income
     When Select one of "<answers>" from Income
