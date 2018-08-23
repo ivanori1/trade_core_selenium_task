@@ -68,7 +68,7 @@ class Browser(object):
         return element
 
     def wait_for_title(self, title):
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 40)
         element = wait.until(EC.title_is(title))
         return element
 
