@@ -1,4 +1,4 @@
-from behave import given, when, then, step
+from behave import when, then, step
 
 
 @step('Click Finish')
@@ -34,6 +34,26 @@ def step_impl(context, answer):
 @then('One of the CDFs dropdown "{answer}" will be visible')
 def step_impl(context, answer):
     context.questionnaire.verify_answer_selected_from_cdfs(answer)
+
+
+@when('Select one of "{answer}" from Spread Betting')
+def step_impl(context, answer):
+    context.questionnaire.select_from_spread_betting(answer)
+
+
+@then('One of the Spread Betting dropdown "{answer}" will be visible')
+def step_impl(context, answer):
+    context.questionnaire.verify_answer_selected_from_spread_betting(answer)
+
+
+@when('Select one of "{answer}" from Relevant Experience')
+def step_impl(context, answer):
+    context.questionnaire.select_from_relevant_experience(answer)
+
+
+@then('One of the Relevant Experience dropdown "{answer}" will be visible')
+def step_impl(context, answer):
+    context.questionnaire.verify_answer_selected_relevant_experience(answer)
 
 
 @when('Select "{platform}" from Trading Platform')
@@ -90,6 +110,7 @@ def step_impl(context, answer):
 def step_impl(context):
     context.questionnaire.check_read_terms()
 
+
 @then('Portal account page will open')
 def step_impl(context):
-    assert context.questionnaire.verify_portal_page_is_open() == "https://demo-biq.dev.tradecore.io/#/portal/accounts"
+    assert context.questionnaire.verify_portal_page_is_open()
