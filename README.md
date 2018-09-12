@@ -31,7 +31,7 @@ For Linux:
 
 1) Move the file to /usr/bin directory sudo mv chromedriver /usr/bin
 
-2) Goto /usr/bin directory and you would need to run something like "chmod a+x chromedriver" to mark it executable. 
+2) Go to /usr/bin directory and you would need to run something like "chmod a+x chromedriver" to mark it executable. 
 
 For Windows:
 
